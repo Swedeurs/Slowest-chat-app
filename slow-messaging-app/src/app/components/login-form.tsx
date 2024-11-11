@@ -1,4 +1,3 @@
-// Add this directive to indicate that this file is a client component.
 "use client";
 
 import React, { useState } from 'react';
@@ -10,7 +9,7 @@ const LoginForm = ({ onLogin }: { onLogin: (username: string) => void }) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Fetch the environment shared password from the backend or use a static value for simplicity
+
     const sharedPassword = process.env.NEXT_PUBLIC_SHARED_PASSWORD;
 
     if (password === sharedPassword) {
