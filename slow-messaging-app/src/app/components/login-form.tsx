@@ -1,8 +1,10 @@
 "use client";
 
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 const LoginForm = ({ onLogin }: { onLogin: (username: string) => void }) => {
+  const router = useRouter();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -14,6 +16,7 @@ const LoginForm = ({ onLogin }: { onLogin: (username: string) => void }) => {
 
     if (password === sharedPassword) {
       onLogin(username);
+      router.push('/dashboard'); 
     } else {
       setError('Invalid password');
     }
